@@ -1,0 +1,37 @@
+<section class="ui vertically padded container">
+  <h1 class="ui top attached header">
+    {{vm.vote._id ? 'Edit Poll' : 'New Poll'}}
+  </h1>
+  <div class="ui attached segment">
+    <form name="vm.form.voteForm" class="ui form" ng-submit="vm.save(vm.form.voteForm.$valid)" novalidate>
+      <div class="ui two column middle aligned very relaxed stackable grid">
+        <div class="column">
+          <div class="field">
+            <input name="name" type="text" ng-model="vm.vote.name" id="name" class="form-control" placeholder="Name your poll" required>
+            <div ng-messages="vm.form.voteForm.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Poll name is required.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui vertical divider"></div>
+        <div class="center aligned options column">
+          <h3 class="ui center aligned divided header">Options</h3>
+          <section class="add-to-list swing-side demo-container">
+            <ul>
+              <li ng-repeat="option in vm.vote.options" class="option">
+                <input ng-model="option.text" type="text" placeholder="{{option.text || 'Option 1'}}" class="clearable" />
+                <span ng-show="!$first" ng-required="$first" ng-click="vm.removeOption($index)">×</span>
+              </li>
+            </ul>
+            <button class="ui blue small button" ng-click="vm.addOption()"
+              ng-show="vm.vote.options.length < vm.opt_max">Add Option</button>
+          </section>
+        </div>
+      </div>
+      <button type="submit" class="ui green button">{{vm.vote._id ? 'Update' : 'Create'}}</button>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </form>
+  </div>
+</section>

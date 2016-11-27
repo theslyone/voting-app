@@ -1,6 +1,3 @@
-.content {
-  margin-top: 50px;
-}
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -11,13 +8,7 @@
 .x-ng-cloak {
   display: none !important;
 }
-.header-profile-image {
-  opacity: 0.8;
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
+
 .open .header-profile-image,
 a:hover .header-profile-image {
   opacity: 1;
@@ -34,4 +25,56 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+
+/*Menu*/
+.fixed.menu .item:hover {
+    background-color: #339900!important;
+    color: #FFFFFF!important;
+}
+
+.fixed.menu .ui.image {
+  opacity: 0.8;
+  height: 20px !important;
+  width: 20px !important;
+  margin-right: 10px;
+}
+
+/*Content*/
+.content {
+  min-height: 100%;
+  margin-top: 40px;
+}
+
+/*Banner*/
+#banner {
+    background: #0E1619 url(../img/brand/vote.jpg) no-repeat scroll 50% 25%/ cover;
+}
+
+section.content .segment .container {
+    padding: 40px 12px;
+}
+.caption.container {
+    padding: 250px 0!important;
+}
+.caption.container .header {
+    font-size: 48px;
+}
+
+/*Main*/
+.vertically.padded {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.story.container {
+    text-align: center;
+}
+
+.story.container .header {
+    font-size: 32px;
+}
+
+.social.link.grid{
+  margin-bottom: 20px;
 }
