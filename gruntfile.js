@@ -10,6 +10,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path');
 
+console.log(defaultAssets);
 module.exports = function (grunt) {
   // Project Configuration
   grunt.initConfig({
