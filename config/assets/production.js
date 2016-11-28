@@ -23,7 +23,7 @@ module.exports = {
 
         'public/lib/chart/dist/Chart.min.js',
         'public/lib/angular-chart/dist/angular-chart.min.js',
-        'public/lib/underscore/underscore.js'
+        'public/lib/underscore/underscore.min.js'
       ]
     },
     css: 'public/dist/application.min.css',
