@@ -1,0 +1,52 @@
+<section class="ui vertically padded container">
+  <div class="ui three column stackable grid">
+    <div class="seven wide center aligned column poll">
+      <h1 ng-bind="vm.poll.name"></h1>
+      <small>
+        <em class="text-muted">
+          Posted on
+          <span ng-bind="vm.poll.created | date:'mediumDate'"></span>
+          by
+          <span ng-if="vm.poll.user"
+                ng-bind="vm.poll.user.displayName"></span>
+          <span ng-if="!vm.poll.user">Deleted User</span>
+        </em>
+      </small>
+      <div class="ui floated right">
+        <a class="ui mini green button" ui-sref="polls.dashboard({ pollId: vm.poll._id })" ng-show="vm.poll.voted">
+          <i class="sitemap icon"></i>Dashboard
+        </a>
+        <a class="ui mini blue button" ui-sref="polls.edit({ pollId: vm.poll._id })" ng-show="vm.poll.isCurrentUserOwner">
+          <i class="edit icon"></i>Edit
+        </a>
+        <a class="ui mini red button" ng-click="vm.remove()" ng-show="vm.poll.isCurrentUserOwner">
+          <i class="remove icon"></i>Delete
+        </a>
+      </div>
+    </div>
+    <div class="five wide column options">
+      <form name="vm.form.pollForm" class="ui mini form" ng-submit="vm.vote(vm.form.pollForm.$valid)">
+        <div class="grouped fields">
+          <div ng-repeat="option in vm.poll.options" class="ui blue stackable segment field option">
+            <div class="ui radio checkbox">
+              <input type="radio" ng-value="option._id" ng-model="vm.poll.vote" id="{{option._id}}" name="option" required>
+              <label for="{{option._id}}">{{option.text}}</label>
+            </div>
+          </div>
+          <div ng-messages="vm.form.pollForm.option.$error" role="alert">
+            <div class="ui mini negative message" ng-message="required">Please make a selection</div>
+          </div>
+        </div>
+        <button ng-disabled="vm.form.pollForm.$invalid || vm.poll.voted" class="ui green button" type="submit" ng-bind="vm.poll.voted ? 'Voted' : 'Vote'"></button>
+      </form>
+    </div>
+    <div class="four wide left aligned column">
+      <h3 class="ui top attached header">
+        <span class="ui red header">Vote</span> History
+      </h3>
+      <div class="ui attached blue segment">
+        Content
+      </div>
+    </div>
+  </div>
+</section>

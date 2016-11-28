@@ -19,7 +19,11 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/jquery/dist/jquery.min.js',
-        'public/lib/semantic/dist/semantic.min.js'
+        'public/lib/semantic/dist/semantic.min.js',
+
+        'public/lib/chart/dist/Chart.min.js',
+        'public/lib/angular-chart/dist/angular-chart.min.js',
+        'public/lib/underscore/underscore.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

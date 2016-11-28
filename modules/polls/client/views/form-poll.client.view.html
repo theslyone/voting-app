@@ -1,0 +1,43 @@
+<section class="ui vertically padded container">
+  <h1 class="ui top attached header">
+    {{vm.poll._id ? 'Edit Poll' : 'New Poll'}}
+  </h1>
+  <div class="ui attached segment">
+    <form name="vm.form.pollForm" class="ui form" ng-submit="vm.save(vm.form.pollForm.$valid)" novalidate>
+      <div class="ui two column middle aligned very relaxed stackable grid">
+        <div class="column">
+          <div class="field">
+            <textarea name="name" type="text" ng-model="vm.poll.name" id="name"
+              placeholder="Name your poll" required autofocus></textarea>
+            <div ng-messages="vm.form.pollForm.name.$error" role="alert" ng-show="vm.form.pollForm.name.$touched">
+              <p class="ui mini negative message" ng-message="required">Poll name is required.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui vertical divider"></div>
+        <div class="center aligned options column">
+          <h3 class="ui center aligned divided header">Options</h3>
+          <section class="add-to-list swing-side demo-container">
+            <ul>
+              <li ng-repeat="option in vm.poll.options" class="option">
+                <input name="option{{$index}}" ng-model="option.text"
+                  type="text" placeholder="{{option.text || 'Option ' + $index}}" required />
+                <span ng-click="vm.removeOption($index)">×</span>
+                <div ng-messages="vm.form.pollForm.option{{$index}}.$error" role="alert" ng-show="vm.form.pollForm.option{{$index}}.$touched">
+                  <p class="ui mini negative message" ng-message="required">Poll name is required.</p>
+                </div>
+              </li>
+            </ul>
+            <button class="ui blue small button" ng-click="vm.addOption()" type="button"
+              ng-show="vm.poll.options.length < vm.opt_max">Add Option</button>
+          </section>
+        </div>
+      </div>
+      <button type="submit" ng-disabled="vm.form.pollForm.$invalid"
+        class="ui green button">{{vm.poll._id ? 'Update' : 'Create'}}</button>
+      <div ng-show="vm.error" class="ui mini negative message">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </form>
+  </div>
+</section>

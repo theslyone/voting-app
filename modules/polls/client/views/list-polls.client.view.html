@@ -1,0 +1,20 @@
+<section class="ui vertically padded container">
+  <h1 class="ui top attached header">
+    Polls
+  </h1>
+  <div class="ui attached segment">
+    <a ng-repeat="poll in vm.polls" ui-sref="polls.view({ pollId: poll._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="poll.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="poll.user" ng-bind="poll.user.displayName"></span>
+        <span ng-if="!poll.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="poll.name"></h4> <span class="ui mini red">{{poll.votes.length}} vote(s)</span>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.polls.$resolved && !vm.polls.length">
+    No Polls yet, why don't you <a ui-sref="polls.create">create one</a>?
+  </div>
+</section>

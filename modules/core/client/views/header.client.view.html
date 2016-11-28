@@ -1,19 +1,19 @@
 <div class="ui container" ng-controller="HeaderController">
   <a ui-sref="home" class="header item">
     <img class="logo" src="./modules/core/client/img/brand/logo.png">
-    Vote Now
+    Poll Now
   </a>
   <a ui-sref="home" class="item">Home</a>
-  <div class="left menu" ng-if="menu.shouldRender(authentication.user);" ng-hide="true">
-    <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
-      <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-      <ul ng-switch-when="dropdown" class="dropdown-menu">
-        <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-          <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-        </li>
-      </ul>
-      <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-    </li>
+  <div class="left menu" ng-if="menu.shouldRender(authentication.user);">
+    <div ng-repeat="item in menu.items | orderBy: 'position'"
+      ng-if="item.type === 'dropdown' && item.shouldRender(authentication.user);" class="ui simple dropdown item">
+      {{::item.title}}&nbsp;<i class="dropdown icon"></i>
+      <div class="menu">
+        <a ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref="{{subitem.state}}" class="item" ng-bind="subitem.title"></a>
+      </div>
+    </div>
+    <a ng-repeat="item in menu.items | orderBy: 'position'" ng-class="{ active: $state.includes(item.state); }"
+      ng-if="item.type !== 'dropdown' && item.shouldRender(authentication.user);" ui-sref="{{item.state}}" class="item" ng-bind="item.title"></a>
   </div>
   <div class="right menu" ng-hide="authentication.user">
     <a ui-sref-active="active" class="item" ui-sref="authentication.signup">Sign Up</a>

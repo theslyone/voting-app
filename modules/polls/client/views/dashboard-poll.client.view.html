@@ -1,0 +1,11 @@
+<div class="ui vertically padded container">
+  <h1 class="ui top attached header">Poll Dashboard</h1>
+  <div class="ui attached segment">
+    <h2 class="ui center aligned header" ng-bind="vm.poll.name"></h2>
+    <div>
+      <canvas id="bar" class="chart chart-bar"
+        chart-data="vm.chartData" chart-labels="vm.chartLabels" chart-series="chartSeries">
+      </canvas>
+    </div>
+  </div>
+</div>
