@@ -90,7 +90,6 @@
     poll.options = [];
     poll.options.push({ text:"" });
     poll.options.push({ text:"" });
-    //console.log("new poll" + JSON.stringify(poll, null, 4));
     return poll;
   }
 }());
