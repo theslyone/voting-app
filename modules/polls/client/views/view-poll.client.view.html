@@ -13,7 +13,7 @@
         </em>
       </small>
       <div class="ui floated right">
-        <a class="ui mini green button" ui-sref="polls.dashboard({ pollId: vm.poll._id })" ng-show="vm.poll.voted">
+        <a class="ui mini green button" ui-sref="polls.dashboard({ pollId: vm.poll._id })"><!-- ng-show="!vm.poll.voted">-->
           <i class="sitemap icon"></i>Dashboard
         </a>
         <a class="ui mini blue button" ui-sref="polls.edit({ pollId: vm.poll._id })" ng-show="vm.poll.isCurrentUserOwner">
