@@ -6,6 +6,7 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/semantic/dist/semantic.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
@@ -16,7 +17,13 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/angular-file-upload.min.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/semantic/dist/semantic.min.js',
+
+        'public/lib/chart/dist/Chart.min.js',
+        'public/lib/angular-chart/dist/angular-chart.min.js',
+        'public/lib/underscore/underscore.js'
       ]
     },
     css: 'public/dist/application.min.css',
